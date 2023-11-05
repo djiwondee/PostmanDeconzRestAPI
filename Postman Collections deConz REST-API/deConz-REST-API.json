@@ -88,7 +88,7 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "d4ee0691-d935-416b-9f0a-650a6528f1a7",
+				"id": "ea4aa4b2-8bfc-4023-808c-b12ef142d4ad",
 				"type": "text/javascript",
 				"exec": [
 					""
@@ -98,7 +98,7 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "dbae350e-666c-4255-89ab-b8b65bf9e7ad",
+				"id": "b74f2c4d-7f9d-4c41-8d2c-502ef4c3bd8c",
 				"type": "text/javascript",
 				"exec": [
 					""
@@ -109,7 +109,7 @@
 	"variable": [
 		{
 			"key": "host",
-			"value": "raspi-smarthome",
+			"value": "{{addYourHostRunningdeConzHere}",
 			"type": "string"
 		},
 		{
