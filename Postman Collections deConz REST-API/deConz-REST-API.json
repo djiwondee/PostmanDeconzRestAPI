@@ -59,7 +59,7 @@
 			"response": []
 		},
 		{
-			"name": "4.  Zweimal kurz Reset button für Commit Changes drücken",
+			"name": "4.  Short push reset button twice to commit changes",
 			"id": "a138a48a-0538-4d1a-92bb-bc2aee69ef6b",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
