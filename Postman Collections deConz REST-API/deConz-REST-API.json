@@ -1,0 +1,131 @@
+{
+	"info": {
+		"_postman_id": "c8d87838-4b77-43e2-9564-9cfb711add98",
+		"name": "Config Update",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "1.  API Key acquisition (activate link button in phoscon app in advance)",
+			"id": "37879b4a-40f8-402e-bb48-2d9c83077ec3",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"devicetype\": \"my application\"\n}"
+				},
+				"url": "http://raspi-smarthome:8080/api/"
+			},
+			"response": []
+		},
+		{
+			"name": "2. Determine Sensor ID",
+			"id": "e00596c6-ac75-460c-a353-6db38469d516",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://{{host}}:{{port}}/api/{{apiKey}}/sensors"
+			},
+			"response": []
+		},
+		{
+			"name": "3. Change sensor sensitivity",
+			"id": "3d15b0b8-7205-4d71-9ae5-5306a41ae0b5",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"sensitivity\": 1\n}"
+				},
+				"url": "http://{{host}}:{{port}}/api/{{apiKey}}/sensors/<id>/config"
+			},
+			"response": []
+		},
+		{
+			"name": "4.  Zweimal kurz Reset button für Commit Changes drücken",
+			"id": "a138a48a-0538-4d1a-92bb-bc2aee69ef6b",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "5. Check change",
+			"id": "7abef476-d9dd-46a3-8af9-17062740f809",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://raspi-smarthome:8080/api/<yourKEY>/sensors/ "
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "d4ee0691-d935-416b-9f0a-650a6528f1a7",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "dbae350e-666c-4255-89ab-b8b65bf9e7ad",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "host",
+			"value": "raspi-smarthome",
+			"type": "string"
+		},
+		{
+			"key": "port",
+			"value": "8080",
+			"type": "string"
+		},
+		{
+			"key": "apiKey",
+			"value": "{{addYourKeyHere}}",
+			"type": "string"
+		},
+		{
+			"key": "sensorId",
+			"value": "0",
+			"type": "string"
+		}
+	]
+}
