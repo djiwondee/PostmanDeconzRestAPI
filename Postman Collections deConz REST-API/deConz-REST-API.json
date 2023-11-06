@@ -18,7 +18,8 @@
 					"mode": "raw",
 					"raw": "{\n    \"username\": \"Postman\",\n    \"devicetype\": \"My Postman Collection\"\n}"
 				},
-				"url": "http://{{host}}:{{port}}/api"
+				"url": "http://{{host}}:{{port}}/api",
+				"description": "Creates a new [API key](https://dresden-elektronik.github.io/deconz-rest-doc/misc/authorization) which provides authorized access to the REST-API.\n\nThe request will only succeed if the gateway is unlocked or valid HTTP basic authentification credentials are provided in the HTTP request header"
 			},
 			"response": []
 		},
@@ -118,7 +119,7 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "549ab289-12f7-4790-869b-91a0a355ad23",
+				"id": "d079bc95-1c49-4f22-8b04-93ca325ffbdf",
 				"type": "text/javascript",
 				"exec": [
 					""
@@ -128,7 +129,7 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "fe65fdde-d210-458c-8130-e0b457d9b97b",
+				"id": "edf1dacb-a526-459c-b94e-fabff5b7c554",
 				"type": "text/javascript",
 				"exec": [
 					""
@@ -139,12 +140,12 @@
 	"variable": [
 		{
 			"key": "host",
-			"value": "{{addYourHostRunningdeConzHere}",
+			"value": "{{addYourHostRunningDeconzHere}}",
 			"type": "string"
 		},
 		{
 			"key": "port",
-			"value": "8080",
+			"value": "{{addYourPort}}",
 			"type": "string"
 		},
 		{
@@ -154,7 +155,7 @@
 		},
 		{
 			"key": "sensorId",
-			"value": "0",
+			"value": "{{placeholderForSensorId}}",
 			"type": "string"
 		}
 	]
