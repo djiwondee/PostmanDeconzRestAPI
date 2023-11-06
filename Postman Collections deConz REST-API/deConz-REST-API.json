@@ -78,7 +78,7 @@
 				"disableBodyPruning": true
 			},
 			"request": {
-				"method": "GET",
+				"method": "MANUELL",
 				"header": []
 			},
 			"response": []
@@ -113,7 +113,7 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "5b69fe41-87e4-4eb0-b87e-ec7c262805af",
+				"id": "51cd5f25-0ef1-40f3-8a0e-c0c2dcbf50ba",
 				"type": "text/javascript",
 				"exec": [
 					""
@@ -123,7 +123,7 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "67e951ae-090f-46ad-9723-d67f9f4a423d",
+				"id": "af021125-7db8-45ab-a85a-356e71c4991a",
 				"type": "text/javascript",
 				"exec": [
 					""
