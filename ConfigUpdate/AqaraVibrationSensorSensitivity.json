@@ -1,0 +1,168 @@
+{
+	"info": {
+		"_postman_id": "c8d87838-4b77-43e2-9564-9cfb711add98",
+		"name": "Aqara Vibration Sensor Sensitivity Update",
+		"description": "In the Aqara app, you can supposedly also adjust the sensitivity. However, you probably have to use a hub to do this. If you use the Aqara sensors without a Xiaomi hub on a deCONZ Conbee/RaspBee II. They are first taught in there.\n\nIf this is successful, you can adjust the sensitivity of the sensors (and certainly more) using the console and curl or using the endpoint explorer via the deCONZ REST API.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "1.  Acquire API key (activate link button in phoscon app in advance)",
+			"id": "37879b4a-40f8-402e-bb48-2d9c83077ec3",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n   \"username\": \"PostmanUser\",\n   \"devicetype\": \"My Postman Collection\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://{{host}}:{{port}}/api",
+				"description": "Creates a new [API key](https://dresden-elektronik.github.io/deconz-rest-doc/misc/authorization) which provides authorized access to the REST-API.\n\nThe request will only succeed if the gateway is unlocked or valid HTTP basic authentification credentials are provided in the HTTP request header"
+			},
+			"response": []
+		},
+		{
+			"name": "2. Determine Sensor ID",
+			"id": "e00596c6-ac75-460c-a353-6db38469d516",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://{{host}}:{{port}}/api/{{apiKey}}/sensors",
+				"description": "The result is a longer JSON string with all the sensors.\n\nDepending on how many sensors there are, you may need to search for the corresponding sensor in the response payload to identify the sensor ID for whicht the change is inteded.\n\nThe sensors are simply numbered in ascending order from 1."
+			},
+			"response": []
+		},
+		{
+			"name": "3. Check config for sensor",
+			"id": "ed5e06c4-9834-485c-89b7-ffb73db75f87",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://raspi-smarthome:8080/api/<yourKEY>/sensors/ ",
+				"description": "Shows just the configuration of the selected sensor for better investigation of its current values."
+			},
+			"response": []
+		},
+		{
+			"name": "3. Change sensor sensitivity",
+			"id": "3d15b0b8-7205-4d71-9ae5-5306a41ae0b5",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"sensitivity\": 1\n}"
+				},
+				"url": "http://{{host}}:{{port}}/api/{{apiKey}}/sensors/<id>/config"
+			},
+			"response": []
+		},
+		{
+			"name": "4.  Short push reset button twice to commit changes",
+			"id": "a138a48a-0538-4d1a-92bb-bc2aee69ef6b",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "MANUELL",
+				"header": [],
+				"description": "This is a manual task on the device directly to commit the sensors config changes"
+			},
+			"response": []
+		},
+		{
+			"name": "5. Check change",
+			"id": "7abef476-d9dd-46a3-8af9-17062740f809",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://{{host}}:{{port}}/api/{{apiKey}}/sensors/{{sensorId}}",
+				"description": "Shows again the configuration of the selected sensor for better investigation of its changed values."
+			},
+			"response": []
+		},
+		{
+			"name": "6. Delete API key",
+			"id": "04e164fe-5e3b-4936-b23b-b9a606907031",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"description": "For security reasons the, deletes an API key so it can no longer be used."
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "d079bc95-1c49-4f22-8b04-93ca325ffbdf",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "edf1dacb-a526-459c-b94e-fabff5b7c554",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "host",
+			"value": "{{addYourHostRunningDeconzHere}}",
+			"type": "string"
+		},
+		{
+			"key": "port",
+			"value": "{{addYourPort}}",
+			"type": "string"
+		},
+		{
+			"key": "apiKey",
+			"value": "{{addYourKeyHere}}",
+			"type": "string"
+		},
+		{
+			"key": "sensorId",
+			"value": "{{placeholderForSensorId}}",
+			"type": "string"
+		}
+	]
+}
