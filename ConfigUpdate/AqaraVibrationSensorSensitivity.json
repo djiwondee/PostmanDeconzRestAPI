@@ -7,6 +7,29 @@
 	},
 	"item": [
 		{
+			"name": "Acquire API key (activate link button in phoscon app in advance)",
+			"id": "37879b4a-40f8-402e-bb48-2d9c83077ec3",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n   \"username\": \"PostmanUser\",\n   \"devicetype\": \"My Postman Collection\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://{{host}}:{{port}}/api",
+				"description": "Creates a new [API key](https://dresden-elektronik.github.io/deconz-rest-doc/misc/authorization) which provides authorized access to the REST-API.\n\nThe request will only succeed if the gateway is unlocked or valid HTTP basic authentification credentials are provided in the HTTP request header"
+			},
+			"response": []
+		},
+		{
 			"name": "Determine Sensor ID",
 			"id": "e00596c6-ac75-460c-a353-6db38469d516",
 			"protocolProfileBehavior": {
@@ -84,13 +107,27 @@
 				"description": "Shows again the configuration of the selected sensor for better investigation of its changed values."
 			},
 			"response": []
+		},
+		{
+			"name": "Delete API key",
+			"id": "04e164fe-5e3b-4936-b23b-b9a606907031",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": "http://{{host}}:{{port}}/api/{{apiKey}}/config/whitelist/{{apiKey}}",
+				"description": "For security reasons the, deletes an API key so it can no longer be used."
+			},
+			"response": []
 		}
 	],
 	"event": [
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "d079bc95-1c49-4f22-8b04-93ca325ffbdf",
+				"id": "591629f6-4717-4a42-94b1-8e2b319e3dc8",
 				"type": "text/javascript",
 				"exec": [
 					""
@@ -100,7 +137,7 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "edf1dacb-a526-459c-b94e-fabff5b7c554",
+				"id": "775b29b2-7c74-406b-b039-9d9b83d8b55e",
 				"type": "text/javascript",
 				"exec": [
 					""
