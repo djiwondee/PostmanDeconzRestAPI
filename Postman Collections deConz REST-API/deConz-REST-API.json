@@ -31,7 +31,8 @@
 			"request": {
 				"method": "GET",
 				"header": [],
-				"url": "http://{{host}}:{{port}}/api/{{apiKey}}/sensors"
+				"url": "http://{{host}}:{{port}}/api/{{apiKey}}/sensors",
+				"description": "The result is a longer JSON string with all the sensors.\n\nDepending on how many sensors there are, you may need to search for the corresponding sensor in the response payload to identify the sensor ID for whicht the change is inteded.\n\nThe sensors are simply numbered in ascending order from 1."
 			},
 			"response": []
 		},
@@ -44,7 +45,8 @@
 			"request": {
 				"method": "GET",
 				"header": [],
-				"url": "http://raspi-smarthome:8080/api/<yourKEY>/sensors/ "
+				"url": "http://raspi-smarthome:8080/api/<yourKEY>/sensors/ ",
+				"description": "Shows just the configuration of the selected sensor for better investigation of its current values."
 			},
 			"response": []
 		},
@@ -79,7 +81,8 @@
 			},
 			"request": {
 				"method": "MANUELL",
-				"header": []
+				"header": [],
+				"description": "This is a manual task on the device directly to commit the sensors config changes"
 			},
 			"response": []
 		},
@@ -92,7 +95,8 @@
 			"request": {
 				"method": "GET",
 				"header": [],
-				"url": "http://{{host}}:{{port}}/api/{{apiKey}}/sensors/{{sensorId}}"
+				"url": "http://{{host}}:{{port}}/api/{{apiKey}}/sensors/{{sensorId}}",
+				"description": "Shows again the configuration of the selected sensor for better investigation of its changed values."
 			},
 			"response": []
 		},
@@ -104,7 +108,8 @@
 			},
 			"request": {
 				"method": "GET",
-				"header": []
+				"header": [],
+				"description": "For security reasons the, deletes an API key so it can no longer be used."
 			},
 			"response": []
 		}
