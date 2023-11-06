@@ -74,9 +74,9 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"sensitivity\": 1\n}"
+					"raw": "{\n   \"sensitivity\": 10\n}"
 				},
-				"url": "http://{{host}}:{{port}}/api/{{apiKey}}/sensors/<id>/config"
+				"url": "http://{{host}}:{{port}}/api/{{apiKey}}/sensors/{{sensorId}}/config"
 			},
 			"response": []
 		},
@@ -87,8 +87,9 @@
 				"disableBodyPruning": true
 			},
 			"request": {
-				"method": "MANUELL",
+				"method": "MANU",
 				"header": [],
+				"url": "There is nothing to request here from the REST API",
 				"description": "This is a manual task on the device directly to commit the sensors config changes"
 			},
 			"response": []
