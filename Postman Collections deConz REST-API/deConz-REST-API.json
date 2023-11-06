@@ -16,9 +16,9 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"devicetype\": \"Postman\"\n}"
+					"raw": "{\n    \"username\": \"Postman\",\n    \"devicetype\": \"My Postman Collection\"\n}"
 				},
-				"url": "http://{{host}}:{{port}}/api/"
+				"url": "http://{{host}}:{{port}}/api"
 			},
 			"response": []
 		},
@@ -32,6 +32,19 @@
 				"method": "GET",
 				"header": [],
 				"url": "http://{{host}}:{{port}}/api/{{apiKey}}/sensors"
+			},
+			"response": []
+		},
+		{
+			"name": "3. Check config for sensor",
+			"id": "ed5e06c4-9834-485c-89b7-ffb73db75f87",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://raspi-smarthome:8080/api/<yourKEY>/sensors/ "
 			},
 			"response": []
 		},
@@ -100,7 +113,7 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "ea4aa4b2-8bfc-4023-808c-b12ef142d4ad",
+				"id": "5b69fe41-87e4-4eb0-b87e-ec7c262805af",
 				"type": "text/javascript",
 				"exec": [
 					""
@@ -110,7 +123,7 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "b74f2c4d-7f9d-4c41-8d2c-502ef4c3bd8c",
+				"id": "67e951ae-090f-46ad-9723-d67f9f4a423d",
 				"type": "text/javascript",
 				"exec": [
 					""
