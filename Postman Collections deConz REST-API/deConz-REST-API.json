@@ -92,7 +92,7 @@
 			"request": {
 				"method": "GET",
 				"header": [],
-				"url": "http://raspi-smarthome:8080/api/<yourKEY>/sensors/ "
+				"url": "http://{{host}}:{{port}}/api/{{apiKey}}/sensors/{{sensorId}}"
 			},
 			"response": []
 		},
