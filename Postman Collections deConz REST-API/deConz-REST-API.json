@@ -6,7 +6,7 @@
 	},
 	"item": [
 		{
-			"name": "1.  API Key acquisition (activate link button in phoscon app in advance)",
+			"name": "1.  Acquire API key (activate link button in phoscon app in advance)",
 			"id": "37879b4a-40f8-402e-bb48-2d9c83077ec3",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
@@ -16,9 +16,9 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"devicetype\": \"my application\"\n}"
+					"raw": "{\n    \"devicetype\": \"Postman\"\n}"
 				},
-				"url": "http://raspi-smarthome:8080/api/"
+				"url": "http://{{host}}:{{port}}/api/"
 			},
 			"response": []
 		},
@@ -80,6 +80,18 @@
 				"method": "GET",
 				"header": [],
 				"url": "http://raspi-smarthome:8080/api/<yourKEY>/sensors/ "
+			},
+			"response": []
+		},
+		{
+			"name": "6. Delete API key",
+			"id": "04e164fe-5e3b-4936-b23b-b9a606907031",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": []
 			},
 			"response": []
 		}
