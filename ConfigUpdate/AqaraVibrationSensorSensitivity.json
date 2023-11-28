@@ -52,7 +52,7 @@
 			"request": {
 				"method": "GET",
 				"header": [],
-				"url": "http://raspi-smarthome:8080/api/<yourKEY>/sensors/ ",
+				"url": "http://{{host}}:{{port}}/api/{{apiKey}}/sensors/{{sensorId}}",
 				"description": "Shows just the configuration of the selected sensor for better investigation of its current values."
 			},
 			"response": []
@@ -74,7 +74,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n   \"sensitivity\": 10\n}"
+					"raw": "{\n   \"sensitivity\": 11\n}"
 				},
 				"url": "http://{{host}}:{{port}}/api/{{apiKey}}/sensors/{{sensorId}}/config"
 			},
@@ -127,7 +127,7 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "7409699f-5554-4ac2-97dc-d99c79d43271",
+				"id": "cc2e5433-9972-4630-bdfd-d8cbf4bf1871",
 				"type": "text/javascript",
 				"exec": [
 					""
@@ -137,7 +137,7 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "eeffea5f-5fe1-4568-be05-0d3652b76306",
+				"id": "5c47cbdd-b7f6-4f0f-9f30-e91f27befa99",
 				"type": "text/javascript",
 				"exec": [
 					""
